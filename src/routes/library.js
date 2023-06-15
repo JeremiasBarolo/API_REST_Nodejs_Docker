@@ -1,21 +1,19 @@
 const express = require("express")
-const { libraryRouter } = require(".")
+const { libraryController } = require("../controllers")
 const router = express.Router()
 
 
-// CRUD library
-
 // Create Library
-router.post('/create')
+router.post('/create/:newName', libraryController.createLibrary)
 
 // Request Library 
-router.get('/request/:Id')
+router.get('/request/:Id/:name', libraryController.getLibrary)
 
 // Update Library
-router.put('/update/:Id')
+router.put('/update/:Id/:updatedName', libraryController.updateLibrary)
 
 // Delete Library
-router.delete('/update/:Id')
+router.delete('/update/:Id/:name', libraryController.deleteLibrary)
 
 
 
