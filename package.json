@@ -4,8 +4,8 @@
   "description": "Ejercicio Nodejs dockerizado.",
   "main": "index.js",
   "scripts": {
-    "start": "npm run index.js",
-    "start:dev": "nodemon run index.js",
+    "start": "npm src/app.js",
+    "start:dev": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
