@@ -1,0 +1,22 @@
+{
+  "name": "ejercicio-node-docker",
+  "version": "1.0.0",
+  "description": "Ejercicio Nodejs dockerizado.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run index.js",
+    "start:dev": "nodemon run index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1",
+    "sequelize": "^6.32.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
