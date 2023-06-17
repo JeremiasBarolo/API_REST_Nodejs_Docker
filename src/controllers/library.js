@@ -4,9 +4,10 @@ const express = require('express')
 //Controladores de Library
 
 // Crear Libreria
-const createLibrary = (req) => {
+const createLibrary = (req, res) => {
     try{
         newLibrary = libraryService.createLibrary(req.params.newName)
+        res.json({"name" : req.params.newName })
         return(newLibrary)
     }catch(error){
         console.error('Could not create the new library', error)
