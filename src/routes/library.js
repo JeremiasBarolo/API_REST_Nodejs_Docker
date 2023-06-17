@@ -4,16 +4,16 @@ const router = express.Router()
 
 
 // Create Library
-router.post('/create/:newName', libraryController.createLibrary)
+router.post('/create', libraryController.createLibrary)
 
 // Request Library 
-router.get('/request/:Id/:name', libraryController.getLibrary)
+router.get('/request/:Id', libraryController.getLibrary)
 
 // Update Library
-router.put('/update/:Id/:updatedName', libraryController.updateLibrary)
+router.put('/update/:Id', libraryController.updateLibrary)
 
 // Delete Library
-router.delete('/update/:Id/:name', libraryController.deleteLibrary)
+router.delete('/update/:Id', libraryController.deleteLibrary)
 
 
 

@@ -35,4 +35,4 @@ const Book = sequelize.define("Book", {
 
 
 
-module.exports = Library;
+module.exports = Book;

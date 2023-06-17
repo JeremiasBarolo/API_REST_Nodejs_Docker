@@ -6,8 +6,8 @@ const express = require('express')
 // Crear Libreria
 const createLibrary = (req, res) => {
     try{
-        newLibrary = libraryService.createLibrary(req.params.newName)
-        res.json({"name" : req.params.newName })
+        newLibrary = libraryService.createLibrary(req.body)
+        res.json({"name" : req.body })
         return(newLibrary)
     }catch(error){
         console.error('Could not create the new library', error)

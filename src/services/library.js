@@ -1,9 +1,11 @@
 const express = require('express')
+const { libraryProvider } = require('../providers')
+
 // Services dedicado a: CRUD librerias.
 
 //  Create
-const createLibrary = (name) => {
-    return console.log(`We created a new library called: ${name}`)
+const createLibrary = async (body) => {
+    return await libraryProvider.createLibrary(body)
 }
 
 //  Request
