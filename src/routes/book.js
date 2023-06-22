@@ -4,7 +4,7 @@ const router = express.Router()
 
 
 // Create Book
-router.post('/create', bookController.createBook)
+router.post('/create/:IdLibreria', bookController.createBook)
 
 // Request Book 
 router.get('/:Id', bookController.getBook)

@@ -53,4 +53,16 @@ const deleteLibrary = async (id) => {
   }
 };
 
-module.exports = { createLibrary , getLibrary, updateLibrary, deleteLibrary}
+// Return All Libreries
+const getAllLibraries = async () => {
+  try {
+    const allFetchedLibrary = await libraryModel.findAll();
+    return allFetchedLibrary;
+  } catch (err) {
+    console.error("Error when getting All Libraries", err);
+    throw err;
+  }
+};
+
+
+module.exports = { createLibrary , getLibrary, updateLibrary, deleteLibrary, getAllLibraries}

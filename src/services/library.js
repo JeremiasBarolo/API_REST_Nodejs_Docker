@@ -23,4 +23,9 @@ const deleteLibrary = async (id) => {
     return await libraryProvider.deleteLibrary(id)
 }
 
-module.exports = { createLibrary, getLibrary, updateLibrary, deleteLibrary }
+//  Read
+const getAllLibraries = async () => {
+    return await libraryProvider.getAllLibraries()
+}
+
+module.exports = { createLibrary, getLibrary, updateLibrary, deleteLibrary, getAllLibraries }

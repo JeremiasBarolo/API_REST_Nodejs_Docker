@@ -4,8 +4,8 @@ const { bookProvider } = require('../providers')
 // Services dedicado a: CRUD Book.
 
 //  Create
-const createBook = async (body) => {
-    return await bookProvider.createBook(body)
+const createBook = async (id,content) => {
+    return await bookProvider.createBook(id,content)
 }
 
 //  Read

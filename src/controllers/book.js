@@ -6,7 +6,7 @@ const express = require('express')
 // Crear Libreria
 const createBook = async (req, res) => {
     try{
-        newBook = await bookService.createBook(req.body)
+        newBook = await bookService.createBook(req.params.IdLibreria,req.body)
         res.json(newBook)
     }catch(error){
         res.status(400).json({ messege: error.message})
@@ -27,7 +27,7 @@ const getBook = async(req, res) => {
 // Actualizar Libreria
 const updateBook = async (req,res) => {
     try{
-        const newUpdatedBook = await bookService.updateBook(req.params.Id, req.body)
+        const newUpdatedBook = await bookService.updateBook(req.params.IdLibreria, req.body)
         res.json(newUpdatedBook)
         return(newUpdatedBook)
     }catch(error){

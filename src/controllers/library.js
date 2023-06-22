@@ -46,4 +46,14 @@ const deleteLibrary = async (req,res) => {
     }
 }
 
-module.exports = { createLibrary, getLibrary, updateLibrary ,deleteLibrary}
+const getAllLibraries = async(req, res) => {
+    try{
+        const allRequestedLibrary = await libraryService.getAllLibraries()
+        res.json(allRequestedLibrary)
+        return(allRequestedLibrary)
+    }catch(error){
+        res.status(400).json({ messege: error.message})
+    }
+}
+
+module.exports = { createLibrary, getLibrary, updateLibrary ,deleteLibrary,getAllLibraries}

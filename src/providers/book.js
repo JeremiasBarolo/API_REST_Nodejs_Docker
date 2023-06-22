@@ -1,13 +1,14 @@
-const { bookModel } = require('../models')
+const { bookModel, libraryModel} = require('../models')
 
 // Create
-const createBook = async (library) => {
+const createBook = async (id, content) => {
     try {
-
-    // logica 
-
+      const newBook = await bookModel.create(content);
+      const selectedLibrary = await libraryModel.findByPk(id);
+      await selectedLibrary.addBook(newBook)
+      return newBook
     } catch (err) {
-      console.error("Error when creating Library", err);
+      console.error("Error when creating book", err);
       throw err;
     }
 };
@@ -20,7 +21,7 @@ const getBook = async (id) => {
 // logica 
 
   } catch (err) {
-    console.error("Error when getting Library", err);
+    console.error("Error when getting book", err);
     throw err;
   }
 };
@@ -32,7 +33,7 @@ const updateBook = async (id, updatedData) => {
   // logica 
 
   } catch (err) {
-    console.error("Error when updating Library", err);
+    console.error("Error when updating book", err);
     throw err;
   }
 };
@@ -44,7 +45,7 @@ const deleteBook = async (id) => {
     // logica 
 
   } catch (err) {
-    console.error("Error when deleting Library", err);
+    console.error("Error when deleting book", err);
     throw err;
     }
 }

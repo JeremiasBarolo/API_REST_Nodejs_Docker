@@ -19,7 +19,7 @@ const Library = sequelize.define("Library", {
   }
 });
 
-Library.hasMany(Book, { foreignKey : "libraryId" });
-Book.belongsTo(Library, { foreignKey : 'libraryId' });
+Library.hasMany(Book, { as: 'book' });
+
 
 module.exports = Library;

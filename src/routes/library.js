@@ -15,6 +15,8 @@ router.put('/:Id', libraryController.updateLibrary)
 // Delete Library
 router.delete('/:Id', libraryController.deleteLibrary)
 
+// Traer todas Librerias 
+router.get('/', libraryController.getAllLibraries)
 
 
 
