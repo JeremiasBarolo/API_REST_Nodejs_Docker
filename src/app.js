@@ -15,6 +15,8 @@ app.use(express.json()) // Trasforma todo los datos a formato JSON
 // Routes
 app.use("/library", libraryRouter)
 
+app.use("/book", libraryRouter)
+
 app.listen(PORT, 
     async () => {
         await initializeDB(); // Inicio de la Base de Datos
