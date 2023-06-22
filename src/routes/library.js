@@ -7,13 +7,13 @@ const router = express.Router()
 router.post('/create', libraryController.createLibrary)
 
 // Request Library 
-router.get('/request/:Id', libraryController.getLibrary)
+router.get('/:Id', libraryController.getLibrary)
 
 // Update Library
-router.put('/update/:Id', libraryController.updateLibrary)
+router.put('/:Id', libraryController.updateLibrary)
 
 // Delete Library
-router.delete('/update/:Id', libraryController.deleteLibrary)
+router.delete('/:Id', libraryController.deleteLibrary)
 
 
 

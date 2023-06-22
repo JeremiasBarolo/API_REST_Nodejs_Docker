@@ -4,43 +4,43 @@ const express = require('express')
 //Controladores de Library
 
 // Crear Libreria
-const createLibrary = (req, res) => {
+const createLibrary = async (req, res) => {
     try{
-        newLibrary = libraryService.createLibrary(req.body)
-        res.json({"name" : req.body })
-        return(newLibrary)
+        newLibrary = await libraryService.createLibrary(req.body)
+        res.json(newLibrary)
     }catch(error){
-        console.error('Could not create the new library', error)
+        res.status(400).json({ messege: error.message})
     }
 }
 
 // Traer Libreria
-const getLibrary = (req) => {
+const getLibrary = async(req, res) => {
     try{
-        newLibrary = libraryService.getLibrary(req.params.Id, req.params.name)
-        return(newLibrary)
+        requestedLibrary = await libraryService.getLibrary(req.params.Id)
+        res.json(requestedLibrary)
+        return(requestedLibrary)
     }catch(error){
-        console.error('Could not create the new library', error)
+        res.status(400).json({ messege: error.message})
     }
 }
 
 // Actualizar Libreria
-const updateLibrary = (req) => {
+const updateLibrary = async (req) => {
     try{
-        newLibrary = libraryService.updateLibrary(req.params.Id, req.params.updatedName)
+        newLibrary = await libraryService.updateLibrary(req.params.Id, req.params.updatedName)
         return(newLibrary)
     }catch(error){
-        console.error('Could not create the new library', error)
+        res.status(400).json({ messege: error.message})
     }
 }
 
 // Borrar Libreria
-const deleteLibrary = (req) => {
+const deleteLibrary = async (req) => {
     try{
-        newLibrary = libraryService.deleteLibrary(req.params.Id, req.params.name)
+        newLibrary =  await libraryService.deleteLibrary(req.params.Id, req.params.name)
         return(newLibrary)
     }catch(error){
-        console.error('Could not create the new library', error)
+        res.status(400).json({ messege: error.message})
     }
 }
 

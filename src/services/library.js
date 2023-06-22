@@ -8,9 +8,9 @@ const createLibrary = async (body) => {
     return await libraryProvider.createLibrary(body)
 }
 
-//  Request
-const getLibrary = (id, name) => {
-    return console.log(`Here's the library ${name}, with the id: ${id}`)
+//  Read
+const getLibrary = async (id) => {
+    return await libraryProvider.getLibrary(id)
 }
 
 //  Update
