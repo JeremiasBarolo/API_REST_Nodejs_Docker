@@ -25,20 +25,22 @@ const getLibrary = async(req, res) => {
 }
 
 // Actualizar Libreria
-const updateLibrary = async (req) => {
+const updateLibrary = async (req,res) => {
     try{
-        newLibrary = await libraryService.updateLibrary(req.params.Id, req.params.updatedName)
-        return(newLibrary)
+        const newUpdatedLibrary = await libraryService.updateLibrary(req.params.Id, req.body)
+        res.json(newUpdatedLibrary)
+        return(newUpdatedLibrary)
     }catch(error){
         res.status(400).json({ messege: error.message})
     }
 }
 
 // Borrar Libreria
-const deleteLibrary = async (req) => {
+const deleteLibrary = async (req,res) => {
     try{
-        newLibrary =  await libraryService.deleteLibrary(req.params.Id, req.params.name)
-        return(newLibrary)
+        const deletedLibrary =  await libraryService.deleteLibrary(req.params.Id)
+        res.json({"deleted": req.params.Id })
+        return(deletedLibrary)
     }catch(error){
         res.status(400).json({ messege: error.message})
     }

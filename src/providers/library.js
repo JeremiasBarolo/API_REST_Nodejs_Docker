@@ -23,4 +23,34 @@ const getLibrary = async (id) => {
   }
 };
 
-module.exports = { createLibrary , getLibrary}
+// Update
+const updateLibrary = async (id, updatedData) => {
+  try {
+    const libraryToUpdate = await libraryModel.findByPk(id);
+    if (!libraryToUpdate) {
+      throw new Error(`Library with id ${id} not found`);
+    }
+    
+    const updatedLibrary = await libraryToUpdate.update(updatedData);
+    return updatedLibrary;
+  } catch (err) {
+    console.error("Error when updating Library", err);
+    throw err;
+  }
+};
+
+// Delete
+const deleteLibrary = async (id) => {
+  try {
+    const deletedLibraryCount = await libraryModel.destroy({ where: { id } });
+    if (deletedLibraryCount === 0) {
+      throw new Error(`Library with id ${id} not found`);
+    }
+    return deletedLibraryCount;
+  } catch (err) {
+    console.error("Error when deleting Library", err);
+    throw err;
+  }
+};
+
+module.exports = { createLibrary , getLibrary, updateLibrary, deleteLibrary}

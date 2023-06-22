@@ -14,13 +14,13 @@ const getLibrary = async (id) => {
 }
 
 //  Update
-const updateLibrary = (id, name) => {
-    return console.log(`We updated the library ${name}, with the id: ${id}`)
+const updateLibrary = async (id, body) => {
+    return await libraryProvider.updateLibrary(id,body)
 }
 
 //  Delete
-const deleteLibrary = (id, name) => {
-    return console.log(`We deleted the library ${name}, with the id: ${id}`)
+const deleteLibrary = async (id) => {
+    return await libraryProvider.deleteLibrary(id)
 }
 
 module.exports = { createLibrary, getLibrary, updateLibrary, deleteLibrary }
