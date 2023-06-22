@@ -17,8 +17,8 @@ const createBook = async (id, content) => {
 // Read
 const getBook = async (id) => {
   try {
-
-// logica 
+    const fetchedBook = await bookModel.findByPk(id, { include: { all: true } });
+    return fetchedBook;
 
   } catch (err) {
     console.error("Error when getting book", err);
@@ -26,11 +26,18 @@ const getBook = async (id) => {
   }
 };
 
+
 // Update
 const updateBook = async (id, updatedData) => {
   try {
 
-  // logica 
+    const bookToUpdate = await bookModel.findByPk(id);
+    if (!bookToUpdate) {
+      throw new Error(`book with id ${id} not found`);
+    }
+    
+    const updatedBook = await bookToUpdate.update(updatedData);
+    return updatedBook;
 
   } catch (err) {
     console.error("Error when updating book", err);
@@ -38,15 +45,32 @@ const updateBook = async (id, updatedData) => {
   }
 };
 
+
 // Delete
 const deleteBook = async (id) => {
   try {
 
-    // logica 
+    const deletedBookCount = await bookModel.destroy({ where: { id } });
+    if (deletedBookCount === 0) {
+      throw new Error(`book with id ${id} not found`);
+    }
+    return deletedBookCount;
 
   } catch (err) {
     console.error("Error when deleting book", err);
     throw err;
     }
 }
-module.exports = { createBook , getBook, updateBook, deleteBook}
+
+
+// Return All Books
+const getAllBooks = async () => {
+  try {
+    const allFetchedBooks = await bookModel.findAll();
+    return allFetchedBooks;
+  } catch (err) {
+    console.error("Error when getting All books", err);
+    throw err;
+  }
+};
+module.exports = { createBook , getBook, updateBook, deleteBook,getAllBooks }

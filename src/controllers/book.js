@@ -3,7 +3,7 @@ const express = require('express')
 
 //Controladores de Book
 
-// Crear Libreria
+// Crear book
 const createBook = async (req, res) => {
     try{
         newBook = await bookService.createBook(req.params.IdLibreria,req.body)
@@ -13,7 +13,7 @@ const createBook = async (req, res) => {
     }
 }
 
-// Traer Libreria
+// Traer book
 const getBook = async(req, res) => {
     try{
         requestedBook = await bookService.getBook(req.params.Id)
@@ -24,10 +24,10 @@ const getBook = async(req, res) => {
     }
 }
 
-// Actualizar Libreria
+// Actualizar book
 const updateBook = async (req,res) => {
     try{
-        const newUpdatedBook = await bookService.updateBook(req.params.IdLibreria, req.body)
+        const newUpdatedBook = await bookService.updateBook(req.params.Id, req.body)
         res.json(newUpdatedBook)
         return(newUpdatedBook)
     }catch(error){
@@ -35,7 +35,7 @@ const updateBook = async (req,res) => {
     }
 }
 
-// Borrar Libreria
+// Borrar book
 const deleteBook = async (req,res) => {
     try{
         const deletedBook =  await bookService.deleteBook (req.params.Id)
@@ -46,4 +46,16 @@ const deleteBook = async (req,res) => {
     }
 }
 
-module.exports = { createBook, getBook, updateBook , deleteBook}
+
+// Traer todas los books
+const getAllBooks = async(req, res) => {
+    try{
+        const allRequestedBooks = await bookService.getAllBooks()
+        res.json(allRequestedBooks)
+        return(allRequestedBooks)
+    }catch(error){
+        res.status(400).json({ messege: error.message})
+    }
+}
+
+module.exports = { createBook, getBook, updateBook , deleteBook, getAllBooks }

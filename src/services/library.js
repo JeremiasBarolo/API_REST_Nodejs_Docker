@@ -23,7 +23,7 @@ const deleteLibrary = async (id) => {
     return await libraryProvider.deleteLibrary(id)
 }
 
-//  Read
+//  Read all
 const getAllLibraries = async () => {
     return await libraryProvider.getAllLibraries()
 }

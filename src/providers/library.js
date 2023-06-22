@@ -56,7 +56,11 @@ const deleteLibrary = async (id) => {
 // Return All Libreries
 const getAllLibraries = async () => {
   try {
-    const allFetchedLibrary = await libraryModel.findAll();
+    const allFetchedLibrary = await libraryModel.findAll(
+      {
+        include: 'book', 
+      }
+    );
     return allFetchedLibrary;
   } catch (err) {
     console.error("Error when getting All Libraries", err);

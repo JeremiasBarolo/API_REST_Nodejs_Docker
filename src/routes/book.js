@@ -15,6 +15,9 @@ router.put('/:Id', bookController.updateBook)
 // Delete Book
 router.delete('/:Id', bookController.deleteBook)
 
+// Traer todos los books 
+router.get('/', bookController.getAllBooks)
+
 
 
 

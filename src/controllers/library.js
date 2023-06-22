@@ -3,6 +3,7 @@ const express = require('express')
 
 //Controladores de Library
 
+
 // Crear Libreria
 const createLibrary = async (req, res) => {
     try{
@@ -12,6 +13,7 @@ const createLibrary = async (req, res) => {
         res.status(400).json({ messege: error.message})
     }
 }
+
 
 // Traer Libreria
 const getLibrary = async(req, res) => {
@@ -24,6 +26,7 @@ const getLibrary = async(req, res) => {
     }
 }
 
+
 // Actualizar Libreria
 const updateLibrary = async (req,res) => {
     try{
@@ -34,6 +37,7 @@ const updateLibrary = async (req,res) => {
         res.status(400).json({ messege: error.message})
     }
 }
+
 
 // Borrar Libreria
 const deleteLibrary = async (req,res) => {
@@ -46,6 +50,8 @@ const deleteLibrary = async (req,res) => {
     }
 }
 
+
+// Traer todas las Librerias
 const getAllLibraries = async(req, res) => {
     try{
         const allRequestedLibrary = await libraryService.getAllLibraries()

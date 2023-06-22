@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../config/db-config");
+const Library =  require('./library.js')
 
 const Book = sequelize.define("Book", {
   isbn: {
@@ -21,6 +22,7 @@ const Book = sequelize.define("Book", {
     allowNull: false
   }
 });
+
 
 
 

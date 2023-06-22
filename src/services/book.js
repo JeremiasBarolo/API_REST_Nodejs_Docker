@@ -23,4 +23,8 @@ const deleteBook = async (id) => {
     return await bookProvider.deleteBook(id)
 }
 
-module.exports = { createBook, getBook, updateBook, deleteBook }
+//  Read all
+const getAllBooks = async () => {
+    return await bookProvider.getAllBooks()
+}
+module.exports = { createBook, getBook, updateBook, deleteBook, getAllBooks }

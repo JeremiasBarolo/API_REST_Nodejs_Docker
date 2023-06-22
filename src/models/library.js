@@ -22,4 +22,5 @@ const Library = sequelize.define("Library", {
 Library.hasMany(Book, { as: 'book' });
 
 
+
 module.exports = Library;
