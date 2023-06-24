@@ -1,10 +1,10 @@
 const express = require("express")
 const { libraryController } = require("../controllers")
 const router = express.Router()
-
+const { jwtValidMDW } = require("../middlewares/auth")
 
 // Create Library
-router.post('/create', libraryController.createLibrary)
+router.post('/create', jwtValidMDW , libraryController.createLibrary)
 
 // Request Library 
 router.get('/:Id', libraryController.getLibrary)
@@ -15,8 +15,8 @@ router.put('/:Id', libraryController.updateLibrary)
 // Delete Library
 router.delete('/:Id', libraryController.deleteLibrary)
 
-// Traer todas Librerias 
-router.get('/', libraryController.getAllLibraries)
+// Get All Libraries 
+router.get('/',libraryController.getAllLibraries)
 
 
 

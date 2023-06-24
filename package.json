@@ -8,10 +8,11 @@
     "start:dev": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Barolo Jeremias",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
     "sequelize": "^6.32.0",

@@ -10,16 +10,16 @@
 // Agregar un libro nuevo (*) (AUTH) (Parcialmente termiando)
 
 // Libro
-// Crear libro (*) (AUTH)
-// Obtener un libro en particular
-// Obtener todos los libros
-// Modificar un libro (AUTH)
-// Eliminar un libro (**) (AUTH)
+// Crear libro (*) (AUTH) (Parcialmente termiando)
+// Obtener un libro en particular (Termiando)
+// Obtener todos los libros (Termiando)
+// Modificar un libro (AUTH) (Parcialmente termiando)
+// Eliminar un libro (**) (AUTH) (Parcialmente termiando)
 
 
 // Requires
 const express = require("express")
-const { libraryRouter, bookRouter } = require('./routes')
+const { libraryRouter, bookRouter ,loginRouter } = require('./routes')
 const { initializeDB } = require("./config/db-config")
 
 
@@ -36,7 +36,10 @@ app.use("/library", libraryRouter)
 
 app.use("/book", bookRouter)
 
+app.use("/login", loginRouter)
+
 app.listen(PORT, 
     async () => {
         await initializeDB(); // Inicio de la Base de Datos
         console.log(`Server running in ${PORT}`);})
+
