@@ -10,10 +10,10 @@ router.post('/create', jwtValidMDW , libraryController.createLibrary)
 router.get('/:Id', libraryController.getLibrary)
 
 // Update Library
-router.put('/:Id', libraryController.updateLibrary)
+router.put('/:Id',jwtValidMDW , libraryController.updateLibrary)
 
 // Delete Library
-router.delete('/:Id', libraryController.deleteLibrary)
+router.delete('/:Id',jwtValidMDW , libraryController.deleteLibrary)
 
 // Get All Libraries 
 router.get('/',libraryController.getAllLibraries)

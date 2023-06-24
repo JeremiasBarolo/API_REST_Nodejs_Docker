@@ -1,20 +1,24 @@
 
 // Librerias
-// Crear librería (AUTH) (Parcialmente terminado)
+// Crear librería (AUTH) (Termiando)
 // Obtener una librería (Termiando)
 // Debe traer también todos los libros (Termiando) 
 // Obtener todas las librerías (Termiando)
 // Debe traer también todos los libros (Termiando)
-// Modificar una librería (AUTH) (Parcialmente termiando)
-// Eliminar una librería (**) (AUTH) (Parcialmente termiando)
-// Agregar un libro nuevo (*) (AUTH) (Parcialmente termiando)
+// Modificar una librería (AUTH) (Termiando)
+// Eliminar una librería (**) (AUTH) (Termiando)
+// Agregar un libro nuevo (*) (AUTH) (Termiando) (Al crearse el libro se debera asignar a que libreria pertenecera)
 
 // Libro
-// Crear libro (*) (AUTH) (Parcialmente termiando)
+// Crear libro (*) (AUTH) (Termiando)
 // Obtener un libro en particular (Termiando)
 // Obtener todos los libros (Termiando)
-// Modificar un libro (AUTH) (Parcialmente termiando)
-// Eliminar un libro (**) (AUTH) (Parcialmente termiando)
+// Modificar un libro (AUTH) (Termiando)
+// Eliminar un libro (**) (AUTH) (Termiando)
+
+// User
+// Crear usuario (Terminado)
+// Obtener todos los usuarios (AUTH) (Terminado) (una opcion personal)
 
 
 // Requires
@@ -36,7 +40,7 @@ app.use("/library", libraryRouter)
 
 app.use("/book", bookRouter)
 
-app.use("/login", loginRouter)
+app.use("/user", loginRouter)
 
 app.listen(PORT, 
     async () => {

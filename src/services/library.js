@@ -2,6 +2,8 @@ const express = require('express')
 const { libraryProvider } = require('../providers')
 
 // Services dedicado a: CRUD librerias.
+// Aunque dentro de este proyecto no apliquemos el patron de diseño "Service",
+// lo incluimos por si en un futuro se necesita aplicar logica de negocio a esta parte. 
 
 //  Create
 const createLibrary = async (body) => {
