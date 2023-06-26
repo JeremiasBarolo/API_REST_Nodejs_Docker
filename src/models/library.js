@@ -19,7 +19,7 @@ const Library = sequelize.define("Library", {
   }
 });
 
-Library.hasMany(Book, { as: 'book' });
+Library.hasMany(Book, { as: 'book' , onDelete: 'CASCADE' });
 
 
 

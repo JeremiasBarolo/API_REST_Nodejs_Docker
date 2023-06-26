@@ -50,8 +50,21 @@ Tambien es recomendable instalar **insmonia**, para poder enviar objetos en form
 
 
 # Como usar
-Antes de empezar a usar el proyecto debemos entender como esta formado el mismo.
+Para iniciar el servidor deberemos de ejecutar una terminal dentro del repositorio de API. 
 
+
+el comando que iniciara el servidor es el siguiente:
+```bash
+npm run start
+
+```
+Una vez el server este ejecutandose, podra acceder a el mediante [https://localhost:8090](https://localhost:8090).
+
+A partir de la URL base mostrada, podremos usar los **endpoints** de cada feature.
+
+
+
+Antes de empezar a usar el proyecto debemos entender como esta formado el mismo.
 ### Modelado
 Este proyecto cuenta con tres modelos, dos de ellos estando relacionados entre si (**Library y Book**) y uno totalmente independiente (**User**).
 
@@ -80,11 +93,11 @@ Permite loguearse a "**Admin**", este es el unico usuario del sistema. Sera requ
 ```
 Si se realiza con éxito, **devolvera un TOKEN que nos permitirá realizar todas las acciones dentro del sistema**. Este mismo deberá ser enviado junto a los datos requeridos (dependiendo de cada feature irán variando) para poder hacer uso de estas funcionalidades.
 
-- #### /user (Get)
+- #### /user (Get) (Admin Only)
 
 **Devuelve todos los usuarios creados en el sistema en formato JSON.** Requiere del token de **Admin** para ejecutarse.
 
-- #### /user/create (Post) (Admin Only)
+- #### /user/create (Post) 
 Permite crear un usuario, deberemos enviar por URL un JSON con un contenido parecido a este:
 ```json
 {
@@ -227,4 +240,3 @@ No cree error handlers.
 Entre otras cuestiones que iré actualizando con el tiempo.
 
 Esta API fue creada y desarrollada de manera independiente por [Jeremias Barolo](https://github.com/JeremiasBarolo).
-
