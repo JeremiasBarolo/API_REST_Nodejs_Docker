@@ -4,7 +4,9 @@ const { bookModel, libraryModel} = require('../models')
 const createBook = async (id, content) => {
     try {
       //Creamos el modelo usando el contenido del json
-      const newBook = await bookModel.create(content); 
+      const newBook = await bookModel.create(
+        {libraryId: id,
+        ...content}); 
 
       //Buscamos la biblioteca con el id que le pasamos
       const selectedLibrary = await libraryModel.findByPk(id); 
