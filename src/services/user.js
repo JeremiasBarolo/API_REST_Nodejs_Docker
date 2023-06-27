@@ -2,6 +2,7 @@ const express =  require("express");
 const jwt = require("jsonwebtoken");
 const { SECRET } = require('../middlewares/auth');
 const { userProvider } = require("../providers");
+const { userModel } = require("../models");
 
 
 //  Create
@@ -30,12 +31,17 @@ const getAllUsers = async () => {
 }
 
 // Login
-const login = (req, res)=> {
-    const { user, password } = req.body;
+const login = async (req, res)=> {
+    const { username, password } = req.body;
 
-    // Verificacion de credenciales de admin
-    if (user === 'admin' && password === 'admin') {
-        const token = jwt.sign({user}, SECRET);
+    // Verificacion de si el usuario Existe dentro de la base de datos
+    const userFound = await userModel.findOne({
+        where: { username, password },
+      });
+
+    // Verificacion de credenciales
+    if (username === 'admin' && password === 'admin' || userFound ) {
+        const token = jwt.sign({username}, SECRET);
         res.json({token})
     }else{
         res.status(401).json({messege: 'failed authentication'})

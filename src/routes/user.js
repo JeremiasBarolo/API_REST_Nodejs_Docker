@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
-const {userController} = require("../controllers")
-const {userService} = require("../services")
+const { userController } = require("../controllers")
+const { userService } = require("../services")
 const { jwtValidMDW } = require("../middlewares/auth")
 
 
@@ -12,13 +12,13 @@ router.post('/create', userController.createUser)
 router.get('/:IdUser', userController.getUser)
 
 // Update user
-router.put('/:IdUser', userController.updateUser)
+router.put('/:IdUser', jwtValidMDW , userController.updateUser)
 
 // Delete user
-router.delete('/:IdUser', userController.deleteUser)
+router.delete('/:IdUser', jwtValidMDW, userController.deleteUser)
 
 // Get all users
-router.get('/' , userController.getAllUsers)
+router.get('/' ,jwtValidMDW, userController.getAllUsers)
 
 // Login
 router.post('/login', userService.login)

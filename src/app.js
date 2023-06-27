@@ -1,6 +1,6 @@
 // Nuevas features:
-// Middleware de validacion de usuarios (En Proceso)
-// Full CRUD de Users (En Proceso)
+// Middleware de validacion de usuarios (Hecho)
+// Full CRUD de Users (Hecho)
 // Error handlers
 // Crear base de datos en conteiner
 

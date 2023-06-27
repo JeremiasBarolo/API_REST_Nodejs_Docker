@@ -3,6 +3,13 @@
 Este es un ejercicio de Backend para xAcademy donde creamos una API desde cero.
 Dentro de la rama "Master" de mi proyecto van a encontrar el ejercicio terminado, donde se expone que se cumplen todos los requisitos, pero existe una rama secundaria donde estare terminando de armar el proyecto final: Dockerizando la app y dando un cierre completo a algunas features de la app.
 
+
+# Nuevas Features
+
+-Ahora podemos hacer el CRUD de user.
+-Login nos permite tener un usuario con ADMIN-POWERS.
+
+
 # Para tener en cuenta 
 
 El roadmap del proyecto se encuentra especificado dentro de los commits del mismo.
@@ -80,23 +87,6 @@ Dentro del proyecto tenemos tres **endpoints** con ramificaciones en cada uno:
 ### /user
 Este endpoint tiene como finalidad la administracion de los usuarios dentro de la API.
 
-Tiene tres posibles interacciones: 
-
-- #### /user/login (Post)
-Permite loguearse a "**Admin**", este es el unico usuario del sistema. Sera requerido para algunas acciones dentro de la app. **Debera enviarse por URL el siguiente JSON**  :
-```json
-{
-	"user": "admin",
-	"password": "admin"
-}
-
-```
-Si se realiza con éxito, **devolvera un TOKEN que nos permitirá realizar todas las acciones dentro del sistema**. Este mismo deberá ser enviado junto a los datos requeridos (dependiendo de cada feature irán variando) para poder hacer uso de estas funcionalidades.
-
-- #### /user (Get) (Admin Only)
-
-**Devuelve todos los usuarios creados en el sistema en formato JSON.** Requiere del token de **Admin** para ejecutarse.
-
 - #### /user/create (Post) 
 Permite crear un usuario, deberemos enviar por URL un JSON con un contenido parecido a este:
 ```json
@@ -109,9 +99,49 @@ Permite crear un usuario, deberemos enviar por URL un JSON con un contenido pare
 
 ```
 
+- #### /user/login (Post)
+Permite loguearse al **usuario creado** o a "**Admin**". Sera requerido para algunas acciones dentro de la app. **Debera enviarse por URL un JSON con el siguiente formato** rellenado con los datos del usuario creado:
+```json
+{
+	"username": "User",
+	"password": "Password"
+}
 
+```
+Si se realiza con éxito, **devolvera un TOKEN que nos permitirá realizar todas las acciones dentro del sistema**. Este mismo deberá ser enviado junto a los datos requeridos **(dependiendo de cada feature irán variando)** para poder hacer uso de estas funcionalidades.
 
+- #### /user (Get) (TOKEN Only)
 
+**Devuelve todos los usuarios creados en el sistema en formato JSON.** Requiere del token de **Admin** para ejecutarse.
+
+- #### /user/:idUser (Get) 
+Permite traer un User. Deberemos enviar por URL el **ID** del User, que se especifica al momento de su creación.
+
+- #### /user/:idUser (Put) (TOKEN Only)
+Permite actualizar un User. Deberemos enviar por URL el **ID** de la librería la cual actualizaremos y tambien el contenido en **formato JSON** que queremos actualizar.
+
+Por Ejemplo:
+```json
+#Antes
+{ 
+  "name": "Jeremias", 
+  "lastname": "Barolo", 
+  "password": "123456789" 
+}
+```
+```json
+#Actualizacion enviada por URL
+{ 
+  "name": "Nelson", // Hola profe :D
+  "lastname": "Secchi", 
+  "password": "987654321" 
+}
+```
+
+**Esto actualizara y devolvera el User actualizado en formato JSON.**
+
+- #### /user/:idUser (Delete) (TOKEN Only)
+Permite Eliminar una libraría. Deberemos enviar por URL el **ID** de la librería que se desea eliminar.
 
 
 ### **/library**
@@ -121,7 +151,7 @@ Library es la encargada de manejar el **CRUD** de las librerias. **La creacion, 
 - #### /library (Get) 
 Permite traer todas libraría. 
 
-- #### /library/create (Post) (Admin Only)
+- #### /library/create (Post) (TOKEN Only)
 Permite crear una libraria, deberemos enviar por URL un JSON con un contenido parecido a este:
 ```json
 {
@@ -138,7 +168,7 @@ Permite traer una libraría. Deberemos enviar por URL el **ID** de la librería 
 
 
 
-- #### /library/:idLibreria (Put) (Admin Only)
+- #### /library/:idLibreria (Put) (TOKEN Only)
 Permite actualizar una libraría. Deberemos enviar por URL el **ID** de la librería la cual actualizaremos y tambien el contenido en **formato JSON** que queremos actualizar.
 
 Por Ejemplo:
@@ -161,7 +191,7 @@ Por Ejemplo:
 
 **Esto actualizara y devolvera la libreria actualizada en formato JSON.**
 
-- #### /library/:idLibreria (Delete) (Admin Only)
+- #### /library/:idLibreria (Delete) (TOKEN Only)
 Permite Eliminar una libraría. Deberemos enviar por URL el **ID** de la librería que se desea eliminar.
 
 
@@ -176,7 +206,7 @@ Book permite hacer el **CRUD** de los libros. **La creacion, modificacion y Elim
 - #### /book (Get) 
 Permite traer todos los libros, junto al id de sus librerias. 
 
-- #### /book/create/:idLibreria (Post) (Admin Only)
+- #### /book/create/:idLibreria (Post) (TOKEN Only)
 Permite crear una libro. Deberemos enviar por URL el **ID** de la libreria donde se almacenara el libro y un JSON con un contenido parecido a este:
 ```json
 {
@@ -195,7 +225,7 @@ Permite traer un libro. Deberemos enviar por URL el **ID** de la libro que se es
 
 
 
-- #### /library/:idBook (Put) (Admin Only)
+- #### /library/:idBook (Put) (TOKEN Only)
 Permite actualizar un libro. Deberemos enviar por URL el **ID** de la libro el cual actualizaremos y tambien el contenido en **formato JSON** que queremos actualizar.
 
 Por Ejemplo:
@@ -222,7 +252,7 @@ Por Ejemplo:
 
 **Esto actualizara y devolvera la libreria actualizada en formato JSON.**
 
-- #### /library/:idBook (Delete) (Admin Only)
+- #### /library/:idBook (Delete) (TOKEN Only)
 Permite Eliminar una libro. Deberemos enviar por URL el **ID** de la libro que se desea eliminar.
 
 
