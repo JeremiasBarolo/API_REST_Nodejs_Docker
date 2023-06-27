@@ -6,8 +6,10 @@ Dentro de la rama "Master" de mi proyecto van a encontrar el ejercicio terminado
 
 # Nuevas Features
 
--Ahora podemos hacer el CRUD de user.
--Login nos permite tener un usuario con ADMIN-POWERS.
+- Ahora podemos hacer el CRUD de user.
+
+
+- Login nos permite tener un usuario con ADMIN-POWERS.
 
 
 # Para tener en cuenta 
@@ -93,6 +95,7 @@ Permite crear un usuario, deberemos enviar por URL un JSON con un contenido pare
 {
   "name": "Name", #String
   "lastname": "Lastname", #String
+  "username": "Username", #String
   "email": "name@name.com", #Email format
   "password": "password" #String
 }
@@ -103,8 +106,8 @@ Permite crear un usuario, deberemos enviar por URL un JSON con un contenido pare
 Permite loguearse al **usuario creado** o a "**Admin**". Sera requerido para algunas acciones dentro de la app. **Debera enviarse por URL un JSON con el siguiente formato** rellenado con los datos del usuario creado:
 ```json
 {
-	"username": "User",
-	"password": "Password"
+  "username": "User",
+  "password": "Password"
 }
 
 ```
@@ -210,10 +213,10 @@ Permite traer todos los libros, junto al id de sus librerias.
 Permite crear una libro. Deberemos enviar por URL el **ID** de la libreria donde se almacenara el libro y un JSON con un contenido parecido a este:
 ```json
 {
-	"isbn": 37451563132222, #Interger
-	"title": "Mira ma, se hacer una API", #String
-	"author": "Jeremias Barolo", #String
-	"year": 2021 #Interger
+  "isbn": 37451563132222, #Interger
+  "title": "Mira ma, se hacer una API", #String
+  "author": "Jeremias Barolo", #String
+  "year": 2021 #Interger
 	
 }
 ```
@@ -232,20 +235,20 @@ Por Ejemplo:
 ```json
 #Antes
 {
-	"isbn": 37451563132222, #Interger
-	"title": "Mira ma, se hacer una API", #String
-	"author": "Jeremias Barolo", #String
-	"year": 2021 #Interger
+  "isbn": 37451563132222, #Interger
+  "title": "Mira ma, se hacer una API", #String
+  "author": "Jeremias Barolo", #String
+  "year": 2021 #Interger
 
 }
 ```
 ```json
 #Actualizacion enviada por URL
 {
-	"isbn": 37451563132222, #Interger
-	"title": "Bueno, capaz no tanto", #String
-	"author": "Jeremias Barolo", #String
-	"year": 2021 #Interger
+  "isbn": 37451563132222, #Interger
+  "title": "Bueno, capaz no tanto", #String
+  "author": "Jeremias Barolo", #String
+  "year": 2021 #Interger
     
 }
 ```
@@ -263,7 +266,7 @@ Aunque la app el ejercicio cumpla con los requisitos requeridos, todavía le fal
 
 Sqlite debera correr en un conteiner aparte.
 
-Los usuarios no tiene mas acciones fuera de crearse.
+Los usuarios no tiene mas acciones fuera de crearse. (Mejorando..)
 
 No cree error handlers.
 
